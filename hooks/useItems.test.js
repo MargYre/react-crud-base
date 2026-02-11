@@ -28,14 +28,9 @@ describe("useItems logic", () => {
     const { result } = renderHook(() => useItems());
 
     act(() => {
-      // TROU 1 : Appelle la fonction pour changer l'item 1 en "Croissant"
       result.current.updateItem(1, "Croissant");
     });
-
-    // On récupère l'item après modification
     const updatedItem = result.current.items.find((i) => i.id === 1);
-
-    // TROU 2 : Vérifie que le nom est bien "Croissant"
     expect(updatedItem.name).toBe("Croissant");
   });
 });
